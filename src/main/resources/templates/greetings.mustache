@@ -1,5 +1,10 @@
 
 {{>layouts/header}}
-    <h1>{{id}} {{username}}님 Hello!</h1>
+    {{# id}}
+        <h1>{{id}} {{username}}님 Hello!</h1>
+    {{/id}}
+    {{^ id}}
+        <h1>{{username}}님 Hello!</h1>
+    {{/id}}
 {{>layouts/footer}}
 
