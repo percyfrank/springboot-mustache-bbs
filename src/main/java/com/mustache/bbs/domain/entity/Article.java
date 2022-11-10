@@ -1,7 +1,9 @@
 package com.mustache.bbs.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "article2")
 @NoArgsConstructor
 @Getter
+@ToString
 public class Article {
 
     @Id // Entity에는 대표값이 필요하다 대표값을 지정 고유의 값
@@ -19,13 +22,10 @@ public class Article {
     private String title;
     private String content;
 
-    public Article(String title, String content) {
+    public Article(Long id, String title, String content) {
+        this.id = id;
         this.title = title;
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return "Article{" + "id=" + id + ", title='" + title + '\'' + ", content='" + content + '\'' + '}';
-    }
 }

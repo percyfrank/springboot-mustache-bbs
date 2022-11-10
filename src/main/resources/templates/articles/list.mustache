@@ -1,4 +1,11 @@
 {{>layouts/header}}
+<div class="alert alert-success alert-dismissable fade show" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {{#message}}
+        id : {{id}}이 지워졌습니다.
+    {{/message}}
+</div>
+
 <table class="table">
     <thead>
     <tr>
