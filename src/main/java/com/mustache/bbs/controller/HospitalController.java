@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hospitals")
+@RequestMapping(value = "/hospitals")
 @Slf4j
 public class HospitalController {
     private final HospitalRepository hospitalRepository;
@@ -23,13 +23,13 @@ public class HospitalController {
     }
 
 
-    @GetMapping("")
+    @GetMapping(value = "")
     public String list(Model model, Pageable pageable) {
         Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
         log.info("size:{}", hospitals.getSize());
         model.addAttribute("hospitals", hospitals);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
-        return "hospital/list1";
+        return "hospitals/list";
     }
 }

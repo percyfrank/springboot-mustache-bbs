@@ -15,13 +15,13 @@ public class Hospital {
     @Id
     private Integer id;
 
-//    @Column(name = "road_name_address")
-//    private String roadNameAddress;
-//
-//    @Column(name = "hospital_name")
-//    private String hospitalName;
-//    private Integer patientRoomCount;
-//    private Integer totalNumberOfBeds;
-//    private Float totalAreaSize;
+    @Column(name = "road_name_address")
+    private String roadNameAddress;
+
+    @Column(name = "hospital_name")
+    private String hospitalName;
+    private Integer patientRoomCount;
+    private Integer totalNumberOfBeds;
+    private Float totalAreaSize;
 
 }
