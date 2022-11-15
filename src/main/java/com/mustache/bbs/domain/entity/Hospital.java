@@ -21,12 +21,14 @@ public class Hospital {
 
     @Column(name = "hospital_name")
     private String hospitalName;
+
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
     private String businessTypeName;
     private Float totalAreaSize;
+    private Integer businessStatusCode;
 
-    // Hospital 엔티리를 Hospital DTO로 만들어주는 부분
+    // Hospital 엔티티를 Hospital DTO로 만들어주는 부분
     public static HospitalResponse of(Hospital hospital) {
         return new HospitalResponse(hospital.getId(),hospital.getRoadNameAddress(),hospital.getHospitalName(),
                 hospital.getPatientRoomCount(),hospital.getTotalNumberOfBeds(),hospital.getBusinessTypeName(),
