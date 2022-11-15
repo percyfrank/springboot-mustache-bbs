@@ -1,5 +1,6 @@
 package com.mustache.bbs.domain.entity;
 
+import com.mustache.bbs.domain.dto.HospitalResponse;
 import lombok.Getter;
 
 import javax.persistence.Column;
@@ -22,6 +23,13 @@ public class Hospital {
     private String hospitalName;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
+    private String businessTypeName;
     private Float totalAreaSize;
 
+    // Hospital 엔티리를 Hospital DTO로 만들어주는 부분
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),hospital.getRoadNameAddress(),hospital.getHospitalName(),
+                hospital.getPatientRoomCount(),hospital.getTotalNumberOfBeds(),hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
+    }
 }
