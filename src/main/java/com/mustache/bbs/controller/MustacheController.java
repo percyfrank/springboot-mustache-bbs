@@ -11,20 +11,20 @@ public class MustacheController {
     @GetMapping(value = "/hi")
     public String mustacheCon(Model model) {
         model.addAttribute("username", "권오석"); // view에 값을 넘김
-        return "greetings"; // greetings view 리턴
+        return "welcome/greetings"; // greetings view 리턴
     }
 
     @GetMapping(value = "/hi/{id}")
     public String mustacheCon2(@PathVariable String id, Model model) {
         model.addAttribute("username", "권오석"); // view에 값을 넘김
         model.addAttribute("id", id); // view에 값을 넘김
-        return "greetings"; // greetings view 리턴
+        return "welcome/greetings"; // greetings view 리턴
     }
 
     @GetMapping(value = "/bye")
     public String mustacheCon3(Model model) {
         model.addAttribute("username", "권오석"); // view에 값을 넘김
-        return "goodbye";
+        return "welcome/goodbye";
     }
 
 }
