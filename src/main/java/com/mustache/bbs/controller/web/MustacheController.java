@@ -1,4 +1,4 @@
-package com.mustache.bbs.controller;
+package com.mustache.bbs.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

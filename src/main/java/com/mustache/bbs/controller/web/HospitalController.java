@@ -1,4 +1,4 @@
-package com.mustache.bbs.controller;
+package com.mustache.bbs.controller.web;
 
 import com.mustache.bbs.domain.entity.Hospital;
 import com.mustache.bbs.repository.HospitalRepository;
