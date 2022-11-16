@@ -1,4 +1,4 @@
-package com.mustache.bbs.controller;
+package com.mustache.bbs.controller.api;
 
 import com.mustache.bbs.controller.api.HospitalRestController;
 import com.mustache.bbs.domain.dto.HospitalResponse;
