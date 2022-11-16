@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity // 엔티티 어노테이션을 붙여줘야 객체를 인식한다.
 @Table(name = "article2")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @ToString
 public class Article {
@@ -22,12 +23,6 @@ public class Article {
 
     private String title;
     private String content;
-
-    public Article(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
 
     public static ArticleDto of(Article article) {
         return new ArticleDto(article.getId(), article.getTitle(), article.getContent());
