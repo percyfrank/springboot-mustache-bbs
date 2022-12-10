@@ -30,11 +30,10 @@ class HospitalRestControllerTest {
     void jsonResponse() throws Exception {
         HospitalResponse hospitalResponse = HospitalResponse.builder()
                 .id(2321)
-                .roadNameAddress("서울특별시 서초구 서초중앙로 230, 202호 (반포동, 동화반포프라자빌딩)")
+                .fullAddress("서울특별시 서초구 서초중앙로 230, 202호 (반포동, 동화반포프라자빌딩)")
                 .hospitalName("노소아청소년과의원")
                 .patientRoomCount(0)
                 .totalNumberOfBeds(0)
-                .businessTypeName("의원")
                 .totalAreaSize(0.0f)
                 .businessStatusName("영업중")
                 .build();
