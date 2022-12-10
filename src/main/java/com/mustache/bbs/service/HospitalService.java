@@ -17,8 +17,8 @@ public class HospitalService {
     }
 
     public HospitalResponse getHospital(Integer id) {
-        Optional<Hospital> optHospital = hospitalRepository.findById(id); // Entity
-        Hospital hospital = optHospital.get();
+
+        Hospital hospital = hospitalRepository.findById(id).orElseThrow(() -> new RuntimeException("해당 id가 없습니다."));
         HospitalResponse hospitalResponse = Hospital.of(hospital);  // Dto
 
         if(hospital.getBusinessStatusCode() == 13) hospitalResponse.setBusinessStatusName("영업중");
