@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,20 +25,32 @@ public class HospitalController {
         this.hospitalRepository = hospitalRepository;
     }
 
-
     @GetMapping(value = "")
-    public String list(Model model, Pageable pageable) {
-        Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
-        log.info("size:{}", hospitals.getSize());
+    public String list(@RequestParam(required = false) String keyword, Model model, Pageable pageable) {
+        Page<Hospital> hospitals;
+
+        if(keyword == null) {
+            hospitals = hospitalRepository.findAll(pageable);
+        } else {
+            hospitals = hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
+        }
+
+        log.info("size : {}", hospitals.getSize());
+        log.info("keyword : {}", keyword);
+
+        model.addAttribute("keyword", keyword);
         model.addAttribute("hospitals", hospitals);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
+
         return "hospitals/list";
     }
 
     @GetMapping(value = "/{id}")
     public String detail(@PathVariable Integer id, Model model) {
+
         Optional<Hospital> optdetail = hospitalRepository.findById(id);
+
         if(!optdetail.isEmpty()) {
             model.addAttribute("detail", optdetail.get());
             return "hospitals/detail";
