@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.time.LocalDate;
+
 
 @Getter
 @NoArgsConstructor
@@ -12,21 +16,27 @@ import lombok.NoArgsConstructor;
 @Builder
 public class HospitalResponse {
     private Integer id;
-    private String roadNameAddress;
+    private LocalDate licenseDate;
+    private String phone;
+    private String fullAddress;
     private String hospitalName;
+
+    private Integer healthcareProviderCount;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
-    private String businessTypeName;
     private Float totalAreaSize;
+
     private String businessStatusName;
 
-    public HospitalResponse(Integer id, String roadNameAddress, String hospitalName, Integer patientRoomCount, Integer totalNumberOfBeds, String businessTypeName, Float totalAreaSize) {
+    public HospitalResponse(Integer id, String openServiceName, Integer openLocalGovernmentCode, String managementNumber, LocalDate licenseDate, Integer businessStatus, Integer businessStatusCode, String phone, String fullAddress, String roadNameAddress, String hospitalName, String businessTypeName, Integer healthcareProviderCount, Integer patientRoomCount, Integer totalNumberOfBeds, Float totalAreaSize) {
         this.id = id;
-        this.roadNameAddress = roadNameAddress;
+        this.licenseDate = licenseDate;
+        this.phone = phone;
+        this.fullAddress = fullAddress;
         this.hospitalName = hospitalName;
+        this.healthcareProviderCount = healthcareProviderCount;
         this.patientRoomCount = patientRoomCount;
         this.totalNumberOfBeds = totalNumberOfBeds;
-        this.businessTypeName = businessTypeName;
         this.totalAreaSize = totalAreaSize;
     }
 
