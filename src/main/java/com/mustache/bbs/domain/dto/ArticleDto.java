@@ -19,4 +19,12 @@ public class ArticleDto {
     public Article toEntity() {
         return new Article(id,title, content);
     }
+
+    public static ArticleDto of(Article article) {
+        return ArticleDto.builder()
+                .id(article.getId())
+                .title(article.getTitle())
+                .content(article.getTitle())
+                .build();
+    }
 }
